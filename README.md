@@ -1,2 +1,2 @@
-# .emacs
+# Emacs Settings
 Emacs settings
