@@ -1,7 +1,5 @@
-
 ;;; This file bootstraps the configuration, which is divided into
 ;;; a number of other files.
-
 (let ((minver "23.3"))
   (when (version<= emacs-version "23.1")
     (error "Your Emacs is too old -- this config requires v%s or higher" minver)))
@@ -14,6 +12,7 @@
 (defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
 (defconst *is-a-mac* (eq system-type 'darwin))
 
+
 ;;----------------------------------------------------------------------------
 ;; Temporarily reduce garbage collection during startup
 ;;----------------------------------------------------------------------------
@@ -22,7 +21,6 @@
 (setq gc-cons-threshold (* 128 1024 1024))
 (add-hook 'after-init-hook
           (lambda () (setq gc-cons-threshold sanityinc/initial-gc-cons-threshold)))
-
 
 ;;----------------------------------------------------------------------------
 ;; Bootstrap config
@@ -34,6 +32,7 @@
 ;; Calls (package-initialize)
 (require 'init-elpa)      ;; Machinery for installing required packages
 (require 'init-exec-path) ;; Set up $PATH
+(require 'init-screen)
 
 
 ;;----------------------------------------------------------------------------
@@ -59,6 +58,5 @@
 (require-package 'scratch)
 (require-package 'mwe-log-commands)
 
-(require 'init-frame-hooks)
-
-
+(require 'init-xterm)
+;(require 'init-themes)
