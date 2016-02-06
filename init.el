@@ -60,3 +60,4 @@
 
 (require 'init-xterm)
 ;(require 'init-themes)
+(require 'init-editor)
